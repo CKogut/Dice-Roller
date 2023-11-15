@@ -6,8 +6,8 @@ import random
 # roll 2 - produce two numbers 1-6 and print them
 # roll 3 - produce three numbers and print them.
 
-play = 'y'
-while play == 'y':
+play = True
+while play:
     num_of_dice = 0
     while True:
         dice_input = input('Choose how many dice to roll. Enter a number 1 through 6: ')
@@ -22,5 +22,14 @@ while play == 'y':
     for x in range(1, num_of_dice + 1):
         print(f"Die {x} is a {random.randint(1,6)}")
 
-    play_again = input("Roll again?")
+    while True:
+        play = input("Roll again? Y or N: ")
+        if play.strip().lower() == 'y':
+            break
+        elif play.strip().lower() == 'n':
+            print("Goodbye")
+            play = False
+            break
+        else:
+            print("Invalid input")
 
